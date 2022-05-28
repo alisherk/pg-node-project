@@ -1,0 +1,70 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.10/libexec/bin/yarn.js install
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/alisherkabildjanov/Library/Android/sdk/emulator:/Users/alisherkabildjanov/Library/Android/sdk/tools:/Users/alisherkabildjanov/Library/Android/sdk/tools/bin:/Users/alisherkabildjanov/Library/Android/sdk/platform-tools:/Users/alisherkabildjanov/Library/Android/sdk/emulator:/Users/alisherkabildjanov/Library/Android/sdk/tools:/Users/alisherkabildjanov/Library/Android/sdk/tools/bin:/Users/alisherkabildjanov/Library/Android/sdk/platform-tools
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  16.15.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/alisherkabildjanov/Projects/pg-node/package.json: Unexpected token } in JSON at position 358
+      at JSON.parse (<anonymous>)
+      at /usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:310:30)
+      at /usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:321:13
+
+npm manifest: 
+  {
+      "name": "pg-node-project",
+      "version": "1.0.0",
+      "main": "dist/app.js",
+      "license": "MIT",
+      "scripts": {
+        "dev": "ts-node-dev --transpile-only --no-notify src/app",
+        "build": "tsc",
+        "run": "node dist/app.js",
+        "start": "run-s migrate run",
+        "dev:worker": "ts-node-dev --transpile-only --no-notify src/worker",
+      },
+      "engines": {
+        "node": "14.x"
+      },
+      "peerDependencies": {
+        "@prisma/client": "*",
+        "graphql": "*",
+        "ramda": "*"
+      },
+      "dependencies": {
+        "bull": "^3.29.2",
+        "express": "^4.17.1",
+        "express-fileupload": "^1.2.1",
+        "extract-zip": "^2.0.1",
+        "highland": "^2.13.5",
+        "pg": "^8.7.1",
+        "pg-connection-string": "^2.5.0",
+        "pg-copy-streams": "^6.0.2",
+        "temp-write": "4",
+        "tempy": "1"
+      },
+      "devDependencies": {
+        "@types/bull": "^3.15.4",
+        "@types/express-fileupload": "^1.1.7",
+        "@types/highland": "^2.12.14",
+        "@types/pg": "^8.6.1",
+        "@types/pg-copy-streams": "^1.2.1"
+      }
+    }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
