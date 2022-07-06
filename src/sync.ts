@@ -1,6 +1,7 @@
 import { Pool } from 'pg';
 import { parse } from 'pg-connection-string';
 import { sync as syncAuthors } from './authors';
+import { sync as syncBooks } from './books';
 
 const url: string = process.env.POSTGRES_URL as string;
 const config = parse(url);
@@ -21,8 +22,13 @@ export async function syncAll() {
 
     await syncAuthors(client);
 
-    await client.query('COMMIT');
+    await syncBooks(client);
 
+    await client.query('CREATE TABLE authorsCopy (LIKE authors);');
+
+    await client.query('INSERT INTO authorsCopy SELECT id, name, bio FROM authors;');
+  
+    await client.query('COMMIT');
   } catch (error) {
     await client.query('ROLLBACK');
 
